@@ -1,0 +1,85 @@
+import React, { Component } from "react";
+import ReactDOM from "react-dom";
+import { Row, Col } from "antd";
+import { Button, Space, Avatar, Badge } from "antd";
+import "antd/dist/antd.css";
+import "./App.css";
+import { UserOutlined } from "@ant-design/icons";
+
+import { Layout, Menu, Dropdown } from "antd";
+
+const { Header, Content, Sider } = Layout;
+
+function handleMenuClick(e) {
+  console.log("click", e);
+}
+
+function App() {
+  const menu = (
+    <Menu onClick={handleMenuClick}>
+      <Menu.Item key="1" icon={<UserOutlined />}>
+        1st menu item
+      </Menu.Item>
+      <Menu.Item key="2" icon={<UserOutlined />}>
+        2nd menu item
+      </Menu.Item>
+      <Menu.Item key="3" icon={<UserOutlined />}>
+        3rd item
+      </Menu.Item>
+    </Menu>
+  );
+
+  return (
+    <Row style={{ height: "100vh" }}>
+      <Col
+        style={{ backgroundColor: "red" }}
+        xs={6}
+        sm={6}
+        md={6}
+        lg={6}
+        xl={5}
+      ></Col>
+      <Col
+        style={{ backgroundColor: "blue" }}
+        xs={18}
+        sm={18}
+        md={18}
+        lg={18}
+        xl={19}
+      >
+        <Row style={{ minWidth: "100vw" }}>
+          <Col span={16}>
+            <Space align="start" size="large">
+              <Badge count={1}>
+                <Button type="primary">Button</Button>
+              </Badge>
+              <Badge>
+                <Button type="primary">Button</Button>
+              </Badge>
+              <Badge>
+                <Button type="primary">Button</Button>
+              </Badge>
+              <Badge>
+                <Button type="primary">Button</Button>
+              </Badge>
+            </Space>
+          </Col>
+          <Col span={8}>
+            <Dropdown.Button
+              overlay={menu}
+              placement="bottomCenter"
+              icon={<UserOutlined />}
+            >
+              Dropdown
+            </Dropdown.Button>
+          </Col>
+        </Row>
+        <Row style={{ backgroundColor: "green" }}>
+          <div style={{ height: "100vh" }}></div>
+        </Row>
+      </Col>
+    </Row>
+  );
+}
+
+export default App;
