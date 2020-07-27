@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Badge, Typography } from "antd";
 import "antd/dist/antd.css";
 import "../broadcast.css";
@@ -16,7 +16,8 @@ const BroadcastPanel = (props) => {
           <Badge className="floated" count={props.Msgs.length} />
         </Title>
       </div>
-      <div className="broadcast-panel-body">
+
+      <div className="broadcast-panel-body scrollbar scrollbar-info">
         {props.Msgs.map((msg) => (
           <BroadcastMsg
             key={msg.eventDate}

@@ -7,13 +7,17 @@ const { Meta } = Card;
 
 function Bio(props) {
   return (
-    <Card hoverable style={{ width: 300, borderRadius: 10 }}>
+    <div
+      style={{
+        padding: "15px 0px 0px 15px",
+      }}
+    >
       <Meta
         avatar={<Avatar size={60} icon={<UserOutlined />} />}
         title={props.name}
         description={props.email}
       />
-      <br />
+
       <Divider style={{ border: "1px solid DodgerBlue" }} />
       <Descriptions column={1} colon={false}>
         <Descriptions.Item label="Employee Code">{props.eID}</Descriptions.Item>
@@ -25,7 +29,7 @@ function Bio(props) {
         </Descriptions.Item>
         <Descriptions.Item label="Department">{props.depart}</Descriptions.Item>
       </Descriptions>
-    </Card>
+    </div>
   );
 }
 

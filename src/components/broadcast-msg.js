@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Comment, Tooltip, Badge, Modal } from "antd";
 import "antd/dist/antd.css";
 import moment from "moment";
@@ -15,7 +15,7 @@ function BroadcastMsg(props) {
     icon = <ScheduleTwoTone style={{ marginTop: 15, fontSize: 30 }} />;
     showEvenDate = [
       <Tooltip title="Event Date">
-        <Badge color="cyan" text={props.eventDate} />
+        <Badge color="blue" text={props.eventDate} />
       </Tooltip>,
     ];
   }
