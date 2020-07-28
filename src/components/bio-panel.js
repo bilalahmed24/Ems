@@ -18,7 +18,7 @@ function Bio(props) {
         description={props.email}
       />
 
-      <Divider style={{ border: "1px solid DodgerBlue" }} />
+      <Divider style={{ paddingLeft: 100, border: "1px solid DodgerBlue" }} />
       <Descriptions column={1} colon={false}>
         <Descriptions.Item label="Employee Code">{props.eID}</Descriptions.Item>
         <Descriptions.Item label="Mobile Number">

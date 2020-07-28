@@ -1,6 +1,7 @@
 import React from "react";
 import { Comment, Tooltip, Badge, Modal } from "antd";
 import "antd/dist/antd.css";
+import "./broadcast.css";
 import moment from "moment";
 import { NotificationTwoTone, ScheduleTwoTone } from "@ant-design/icons";
 
