@@ -1,44 +1,52 @@
-import React, { useState } from "react";
+import React from "react";
+import Clock from "react-live-clock";
 import "antd/dist/antd.css";
-import { Typography, Row, Col } from "antd";
-import moment from "moment";
-import Clock from "./clock/mainClock";
-import Timer from "./time-remaining";
-import Marker from "./attendance-marker";
+import { Typography, Row, Col, Button } from "antd";
 
 const { Title } = Typography;
 
-var date = moment();
-date = date.format("dddd, MMMM Do YYYY");
-
 const AttendancePanel1 = () => {
-  const [btnText, setText] = useState("Attendance");
-  const [btnStatus, setStatus] = useState(false);
-  const [timerStatus, setTimer] = useState(false);
-
   return (
     <>
-      <Row style={{ height: "10%" }}>
-        <Title style={{ width: "100%", textAlign: "center" }} level={4}>
-          {date}
-        </Title>
-      </Row>
-      <Row style={{ height: "90%" }}>
-        <Col flex="195px">
-          <Clock />
-        </Col>
-        <Col flex="222.81px">
-          <Timer status={timerStatus} />
-        </Col>
-        <Row style={{ width: "100%", justifyContent: "center" }}>
-          <Col>
-            <Marker
-              btnText={btnText}
-              setText={setText}
-              setStatus={setStatus}
-              btnStatus={btnStatus}
-              setTimer={setTimer}
-            />
+      <Row>
+        <Row style={{ width: "100%" }}>
+          <Col offset={5} span={8}>
+            <label style={{ fontSize: 13 }}>Time</label>
+            <Title level={2}>
+              <Clock format="HH:mm" interval={60000} ticking={true} />
+            </Title>
+          </Col>
+          <Col span={9}>
+            <label style={{ fontSize: 13 }}>Date</label>
+            <Title level={2}>
+              <Clock format="D MMMM YYYY" interval={8.64e7} ticking={true} />
+            </Title>
+          </Col>
+        </Row>
+        <Row style={{ width: "100%" }}>
+          <Col offset={5} span={8}>
+            <label style={{ fontSize: 13 }}>Attendance Time</label>
+            <Title level={2}>
+              <Clock format="HH:mm" interval={60000} ticking={true} />
+            </Title>
+          </Col>
+          <Col span={9}>
+            <label style={{ fontSize: 13 }}>Exit Time</label>
+            <Title level={2}>
+              <Clock format="HH:mm" interval={60000} ticking={true} />
+            </Title>
+          </Col>
+        </Row>
+        <Row align="bottom" style={{ width: "100%" }}>
+          <Col offset={5} span={8}>
+            <Button type="primary" shape="round" size="large">
+              Attendance
+            </Button>
+          </Col>
+          <Col span={9}>
+            <Button type="primary" shape="round" size="large">
+              Exit
+            </Button>
           </Col>
         </Row>
       </Row>
@@ -47,3 +55,17 @@ const AttendancePanel1 = () => {
 };
 
 export default AttendancePanel1;
+
+// var datetime = null,
+//   date = null;
+
+// var update = function () {
+//   date = moment(new Date());
+//   datetime.html(date.format("dddd, MMMM Do YYYY, h:mm:ss a"));
+// };
+
+// $(document).ready(function () {
+//   datetime = $("#datetime");
+//   update();
+//   setInterval(update, 1000);
+// });

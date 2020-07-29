@@ -35,48 +35,43 @@ const data1 = {
 const AttendancePanel2 = () => {
   return (
     <>
-      <Row style={{ width: "100%" }}>
-        <Row style={{ width: "100%", justifyContent: "center" }}>
-          <Col>
-            <Title level={4}>{date}</Title>
-          </Col>
+      <Row>
+        <Row style={{ justifyContent: "space-evenly", width: "100%" }}>
+          <Title level={4}>{date}</Title>
         </Row>
-        <Row style={{ width: "100%", justifyContent: "center" }}>
-          <Col flex="290px">
+        <Row gutter={[32, 16]} style={{ width: "100%" }}>
+          <Col span={12}>
             <Pie
-              height={250}
-              width={280}
+              height={220}
+              width={230}
               data={data}
               options={{
                 responsive: false,
                 maintainAspectRatio: false,
-                title: {
-                  display: true,
-                  text: "Current Month Attendance",
-                  fontSize: 18,
-                },
                 legend: {
-                  position: "bottom",
+                  align: "start",
+                  position: "left",
+                  labels: {
+                    boxWidth: 15,
+                  },
                 },
               }}
             />
           </Col>
-          <Col flex="290px">
+          <Col span={12}>
             <Pie
-              height={267}
-              width={280}
+              height={220}
+              width={245}
               data={data1}
               options={{
                 responsive: false,
                 maintainAspectRatio: false,
-                title: {
-                  display: true,
-                  text: "Current Month Work Schedule",
-                  fontSize: 18,
-                },
                 legend: {
-                  display: true,
-                  position: "bottom",
+                  align: "start",
+                  position: "right",
+                  labels: {
+                    boxWidth: 15,
+                  },
                 },
               }}
             />

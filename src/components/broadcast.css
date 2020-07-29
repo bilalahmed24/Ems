@@ -24,6 +24,13 @@
   height: 50vh;
 }
 
+.miniprojecct-panel-body {
+  margin-right: 50px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  height: 21vh;
+}
+
 .broadcast-msg {
   text-overflow: ellipsis;
   overflow: hidden;

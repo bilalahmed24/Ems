@@ -5,8 +5,9 @@ import BroadcastPanel from "./components/broadcast-panel";
 import Bio from "./components/bio-panel";
 import AttendancePanel1 from "./components/attendance-panel-1";
 import AttendancePanel2 from "./components/attendance-panel-2";
-import PerformancePanel from "./components/performance-panel";
+import ProjectChart from "./components/project-chart-panel";
 import MiniProjectDetails from "./components/mini-project-panel";
+import EfficiencyChart from "./components/efficiency-panel";
 
 function App() {
   var msgs = [
@@ -46,21 +47,32 @@ function App() {
           </Row>
         </Col>
         <Col span={19}>
-          <Row style={{ backgroundColor: "red", height: 40 }}></Row>
+          <Row style={{ backgroundColor: "red", height: 40 }}>
+            <Col span={24}></Col>
+          </Row>
 
-          <Row>
-            <Col flex="445.63px">
-              <AttendancePanel1 />
-            </Col>
-            <Col flex="620px">
-              <AttendancePanel2 />
-            </Col>
-          </Row>
-          <Row>
-            <PerformancePanel />
-          </Row>
-          <Row>
-            <MiniProjectDetails />
+          <Row style={{ paddingTop: "40px" }} justify="space-around">
+            <Row style={{ height: "38vh" }}>
+              <Col span={11}>
+                <AttendancePanel1 />
+              </Col>
+              <Col span={11}>
+                <AttendancePanel2 />
+              </Col>
+            </Row>
+            <Row style={{ width: "100%", height: "28vh" }}>
+              <Col span={11}>
+                <ProjectChart />
+              </Col>
+              <Col span={11}>
+                <EfficiencyChart />
+              </Col>
+            </Row>
+            <Row style={{ height: "21vh", width: "100%" }}>
+              <Col offset={2} span={21}>
+                <MiniProjectDetails />
+              </Col>
+            </Row>
           </Row>
         </Col>
       </Row>
