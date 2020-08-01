@@ -10,10 +10,11 @@ const BroadcastPanel = (props) => {
   return (
     <>
       <div className="broadcast-panel-header">
+      <Badge count={props.Msgs.length} >
         <Title level={4} strong>
           Broadcast
-          <Badge className="floated" count={props.Msgs.length} />
         </Title>
+        </Badge>
       </div>
 
       <div className="broadcast-panel-body scrollbar scrollbar-info">

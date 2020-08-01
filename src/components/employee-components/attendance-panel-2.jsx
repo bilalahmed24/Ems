@@ -11,7 +11,7 @@ date = date.format("MMMM, YYYY");
 const data = {
   datasets: [
     {
-      backgroundColor: ["#98fb98", "#F4C2C2"],
+      backgroundColor: ["red", "#1890ff"],
 
       data: [10, 20],
     },
@@ -23,7 +23,7 @@ const data = {
 const data1 = {
   datasets: [
     {
-      backgroundColor: ["#F4C2C2", "#C8A2C8", "#98fb98"],
+      backgroundColor: ["#CCCC00", "#00ff00", "#ff9700"],
 
       data: [10, 20, 30],
     },
@@ -35,14 +35,18 @@ const data1 = {
 const AttendancePanel2 = () => {
   return (
     <>
-      <Row>
-        <Row style={{ justifyContent: "space-evenly", width: "100%" }}>
-          <Title level={4}>{date}</Title>
+      <Row style={{ width: "100%" }}>
+        <Row style={{ width: "100%", justifyContent: "center" }}>
+          <Col>
+            <Title style={{ color: "#878787" }} level={3}>
+              {date}
+            </Title>
+          </Col>
         </Row>
-        <Row gutter={[32, 16]} style={{ width: "100%" }}>
-          <Col span={12}>
+        <Row style={{ width: "100%", justifyContent: "center" }}>
+          <Col flex="260px">
             <Pie
-              height={220}
+              height={200}
               width={230}
               data={data}
               options={{
@@ -58,9 +62,9 @@ const AttendancePanel2 = () => {
               }}
             />
           </Col>
-          <Col span={12}>
+          <Col flex="260px">
             <Pie
-              height={220}
+              height={200}
               width={245}
               data={data1}
               options={{

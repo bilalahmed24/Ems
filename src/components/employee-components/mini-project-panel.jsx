@@ -7,9 +7,13 @@ const { Title, Paragraph } = Typography;
 const MiniProjectDetails = () => {
   return (
     <>
-      <div className="miniprojecct-panel-body scrollbar scrollbar-info">
+      <div className="miniproject-panel-body scrollbar scrollbar-info">
         <Descriptions
-          title={<Title level={3}>Active Projects</Title>}
+          title={
+            <Title style={{ color: "#878787" }} level={3}>
+              Active Projects
+            </Title>
+          }
           size="middle"
           colon={false}
         >
