@@ -1,6 +1,7 @@
 import React from "react";
 import "antd/dist/antd.css";
 import { Row, Col, Typography, Descriptions } from "antd";
+import "../components/employee-components/main-theme.css";
 import MonthSalaryTable from "../components/employee-components/month-salary-table";
 import AttendanceTable from "../components/employee-components/attendance-detailed-table";
 
@@ -134,14 +135,14 @@ const EmployeeSalaryAttendanceTab = () => {
         </Col>
       </Row>
       <Row justify="space-around" style={{ paddingTop: "20px" }}>
-        <Col className="col-display basic-title-color" offset={1} flex="auto">
+        <Col className="col-display basic-title-color" offset={1} span={16}>
           <AttendanceTable />
         </Col>
         <Col
           className="col-display basic-title-color"
           offset={2}
           pull={1}
-          flex="200px"
+          span={5}
         >
           <Title
             className="basic-title-color"
@@ -174,7 +175,11 @@ const EmployeeSalaryAttendanceTab = () => {
               </Descriptions.Item>
             </Descriptions>
           </div>
-          <Title className="basic-title-color" level={4}>
+          <Title
+            className="basic-title-color"
+            style={{ paddingTop: 0, margin: 0 }}
+            level={4}
+          >
             Penalty Details
           </Title>
           <div
@@ -182,9 +187,6 @@ const EmployeeSalaryAttendanceTab = () => {
               backgroundColor: "#FFFFFF",
               padding: "0 10px",
               borderRadius: 20,
-              position: "absolute",
-              bottom: 15,
-              width: "80%",
             }}
           >
             <label style={{ float: "left" }}>Late</label>
@@ -195,6 +197,7 @@ const EmployeeSalaryAttendanceTab = () => {
             <br />
             <label style={{ float: "left" }}>Early Exit</label>
             <label style={{ float: "right" }}>{earlyExitFine}Rs</label>
+            <br />
           </div>
         </Col>
       </Row>

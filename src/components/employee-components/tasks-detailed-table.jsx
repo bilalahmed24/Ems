@@ -115,7 +115,7 @@ const TaskTable = () => {
             showHeader={false}
             columns={memberColumn}
             dataSource={membersData}
-            size="small"
+            size="middle"
             pagination={false}
             scroll={{ y: 120 }}
           />
@@ -124,7 +124,7 @@ const TaskTable = () => {
           <Table
             columns={taskColumns}
             dataSource={taskData}
-            size="small"
+            size="middle"
             pagination={false}
             scroll={{ y: 120 }}
           />
@@ -135,10 +135,7 @@ const TaskTable = () => {
         visible={editTask}
         width="665px"
         title="Edit/Update Task"
-        autoFocusButton={null}
-        closable={false}
         okText="Update"
-        cancelText="Delete Task"
         okButtonProps={{
           style: { backgroundColor: "#1890ff", borderRadius: 20 },
         }}
@@ -148,9 +145,9 @@ const TaskTable = () => {
       >
         <Button
           type="primary"
+          danger
           shape="round"
           style={{
-            backgroundColor: "#ff0000",
             borderRadius: 20,
             position: "absolute",
             bottom: 10,
@@ -166,6 +163,7 @@ const TaskTable = () => {
           </Form.Item>
           <Form.Item>
             <Select
+              className="form-items"
               showSearch
               style={{ width: 150 }}
               placeholder="Select a member"

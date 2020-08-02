@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Row,
   Col,
@@ -9,13 +9,37 @@ import {
   Space,
   Button,
   Table,
+  Modal,
+  Form,
+  Input,
+  Select,
+  DatePicker,
 } from "antd";
-import { DownOutlined } from "@ant-design/icons";
+import { DownOutlined, MinusCircleOutlined } from "@ant-design/icons";
 import moment from "moment";
 
 const { Title } = Typography;
+const { Option } = Select;
 
 const ProjectTable = () => {
+  const [task, setAssign] = useState(false);
+
+  function assignTask() {
+    setAssign(false);
+  }
+
+  const membersData = [
+    {
+      Member: "ABC",
+    },
+    {
+      Member: "ABC",
+    },
+    {
+      Member: "ABC",
+    },
+  ];
+
   const columns = [
     {
       title: "Title",
@@ -45,12 +69,13 @@ const ProjectTable = () => {
       title: "Assign Task",
       dataIndex: "Task",
       render: () => (
-        <Button type="primary" shape="round">
+        <Button type="primary" shape="round" onClick={() => setAssign(true)}>
           Assign
         </Button>
       ),
     },
   ];
+
   const data = [
     {
       Title: "ABC",
@@ -123,7 +148,7 @@ const ProjectTable = () => {
   const now = new Date().getUTCFullYear();
   const years = Array(now - (now - 20))
     .fill("")
-    .map((v, idx) => now - idx);
+    .map((idx) => now - idx);
   const months = moment.months();
   const currentMonth = moment(new Date()).month();
 
@@ -177,12 +202,117 @@ const ProjectTable = () => {
           <Table
             columns={columns}
             dataSource={data}
-            size="small"
+            size="middle"
             pagination={false}
             scroll={{ y: 250 }}
           />
         </Col>
       </Row>
+      <Modal
+        style={{ borderRadius: "20px" }}
+        visible={task}
+        width="665px"
+        title="Assign Task"
+        okText="Assign"
+        okButtonProps={{
+          style: { backgroundColor: "#1890ff", borderRadius: 20 },
+        }}
+        cancelButtonProps={{ style: { display: "none" } }}
+        onOk={assignTask}
+        onCancel={() => setAssign(false)}
+      >
+        <Form name="dynamic_form_nest_item" autoComplete="off">
+          <Form.List name="users">
+            {(fields, { add, remove }) => {
+              return (
+                <div>
+                  {fields.map((field) => (
+                    <Space
+                      key={field.key}
+                      style={{ display: "flex", marginBottom: 8 }}
+                      align="start"
+                    >
+                      <Form.Item
+                        label="Task"
+                        {...field}
+                        name={[field.name, "task"]}
+                        fieldKey={[field.fieldKey, "task"]}
+                        rules={[{ required: true, message: "Missing task" }]}
+                      >
+                        <Input className="form-items" />
+                      </Form.Item>
+                      <Form.Item
+                        {...field}
+                        name={[field.name, "member"]}
+                        fieldKey={[field.fieldKey, "member"]}
+                        rules={[{ required: true, message: "Missing member" }]}
+                      >
+                        <Select
+                          className="form-items"
+                          showSearch
+                          style={{ width: 150 }}
+                          placeholder="Select a member"
+                          optionFilterProp="children"
+                          filterOption={(input, option) =>
+                            option.children
+                              .toLowerCase()
+                              .indexOf(input.toLowerCase()) >= 0
+                          }
+                        >
+                          {membersData
+                            .map((a) => a.Member)
+                            .map((member) => (
+                              <Option value={member}>{member}</Option>
+                            ))}
+                        </Select>
+                      </Form.Item>
+                      <Form.Item
+                        label="Deadline"
+                        {...field}
+                        name={[field.name, "deadline"]}
+                        fieldKey={[field.fieldKey, "deadline"]}
+                        rules={[
+                          { required: true, message: "Missing deadline" },
+                        ]}
+                      >
+                        <DatePicker
+                          className="form-items"
+                          format={"DD/MM/YYYY"}
+                        />
+                      </Form.Item>
+                      <MinusCircleOutlined
+                        style={{
+                          fontSize: 18,
+                          color: "#ff0000",
+                          paddingTop: 5,
+                        }}
+                        onClick={() => {
+                          remove(field.name);
+                        }}
+                      />
+                    </Space>
+                  ))}
+                  <Button
+                    shape="round"
+                    style={{
+                      backgroundColor: "#00ff00",
+                      borderRadius: 20,
+                      position: "absolute",
+                      bottom: 10,
+                      left: 10,
+                    }}
+                    onClick={() => {
+                      add();
+                    }}
+                  >
+                    Add New Task
+                  </Button>
+                </div>
+              );
+            }}
+          </Form.List>
+        </Form>
+      </Modal>
     </>
   );
 };

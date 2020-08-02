@@ -9,7 +9,7 @@ function Bio(props) {
   return (
     <div
       style={{
-        padding: "15px 0px 0px 15px",
+        padding: "15px",
       }}
     >
       <Meta

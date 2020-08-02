@@ -4,9 +4,10 @@ import { Row, Col } from "antd";
 import NavBar from "./components/employee-components/navbar";
 import BroadcastPanel from "./components/employee-components/broadcast-panel";
 import Bio from "./components/employee-components/bio-panel";
-// import EmployeeDashboard from "./views/employee-dashboard";
-//import EmployeeSalaryAttendanceTab from "./views/employee-salary-attendance";
+import EmployeeDashboard from "./views/employee-dashboard";
+import EmployeeSalaryAttendanceTab from "./views/employee-salary-attendance";
 import EmployeeProjectTab from "./views/employee-projects";
+import EmployeeContactTab from "./views/employee-contact-admin";
 
 function App() {
   var msgs = [
@@ -51,7 +52,7 @@ function App() {
               <NavBar />
             </Col>
           </Row>
-          <EmployeeProjectTab />
+          <EmployeeDashboard />
         </Col>
       </Row>
     </>

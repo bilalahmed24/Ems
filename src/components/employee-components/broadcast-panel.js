@@ -10,14 +10,12 @@ const BroadcastPanel = (props) => {
   return (
     <>
       <div className="broadcast-panel-header">
-      <Badge count={props.Msgs.length} >
-        <Title level={4} strong>
-          Broadcast
-        </Title>
+        <Badge count={props.Msgs.length}>
+          <Title level={3}>Broadcast</Title>
         </Badge>
       </div>
 
-      <div className="broadcast-panel-body scrollbar scrollbar-info">
+      <div className="broadcast-panel-body">
         {props.Msgs.map((msg) => (
           <BroadcastMsg
             key={msg.eventDate}

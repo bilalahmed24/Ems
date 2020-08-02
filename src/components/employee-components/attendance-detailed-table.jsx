@@ -1,94 +1,131 @@
 import React from "react";
-import { Table } from "react-bootstrap";
-import "./salary-attendance-css.css";
+import { Table } from "antd";
 
 const AttendanceTable = () => {
+  const attendaceColumns = [
+    {
+      title: "Day",
+      dataIndex: "Day",
+    },
+    {
+      title: "Attendance Status",
+      dataIndex: "Status",
+    },
+    {
+      title: "Entry Time",
+      dataIndex: "EntryTime",
+    },
+    {
+      title: "Exit Time",
+      dataIndex: "ExitTime",
+    },
+    {
+      title: "Penalty Amount",
+      dataIndex: "PenaltyAmount",
+    },
+  ];
+  const attendanceData = [
+    {
+      Day: "1",
+      Status: "Marked",
+      EntryTime: "12:15",
+      ExitTime: "18:15",
+      PenaltyAmount: "0",
+    },
+    {
+      Day: "1",
+      Status: "Marked",
+      EntryTime: "12:15",
+      ExitTime: "18:15",
+      PenaltyAmount: "0",
+    },
+    {
+      Day: "1",
+      Status: "Marked",
+      EntryTime: "12:15",
+      ExitTime: "18:15",
+      PenaltyAmount: "0",
+    },
+    {
+      Day: "1",
+      Status: "Marked",
+      EntryTime: "12:15",
+      ExitTime: "18:15",
+      PenaltyAmount: "0",
+    },
+    {
+      Day: "1",
+      Status: "Marked",
+      EntryTime: "12:15",
+      ExitTime: "18:15",
+      PenaltyAmount: "0",
+    },
+    {
+      Day: "1",
+      Status: "Marked",
+      EntryTime: "12:15",
+      ExitTime: "18:15",
+      PenaltyAmount: "0",
+    },
+    {
+      Day: "1",
+      Status: "Marked",
+      EntryTime: "12:15",
+      ExitTime: "18:15",
+      PenaltyAmount: "0",
+    },
+    {
+      Day: "1",
+      Status: "Marked",
+      EntryTime: "12:15",
+      ExitTime: "18:15",
+      PenaltyAmount: "0",
+    },
+    {
+      Day: "1",
+      Status: "Marked",
+      EntryTime: "12:15",
+      ExitTime: "18:15",
+      PenaltyAmount: "0",
+    },
+    {
+      Day: "1",
+      Status: "Marked",
+      EntryTime: "12:15",
+      ExitTime: "18:15",
+      PenaltyAmount: "0",
+    },
+    {
+      Day: "1",
+      Status: "Marked",
+      EntryTime: "12:15",
+      ExitTime: "18:15",
+      PenaltyAmount: "0",
+    },
+    {
+      Day: "1",
+      Status: "Marked",
+      EntryTime: "12:15",
+      ExitTime: "18:15",
+      PenaltyAmount: "0",
+    },
+    {
+      Day: "1",
+      Status: "Marked",
+      EntryTime: "12:15",
+      ExitTime: "18:15",
+      PenaltyAmount: "0",
+    },
+  ];
+
   return (
-    <div className="tableFixHead scrollbar scrollbar-info">
-      <Table style={{ width: "100%" }} borderless hover responsive>
-        <thead>
-          <tr>
-            <th>Day</th>
-            <th>Attendance Status</th>
-            <th>Entry Time</th>
-            <th>Exit Time</th>
-            <th>Penalty Amount</th>
-          </tr>
-        </thead>
-        <tbody style={{ backgroundColor: "#FFFFFF" }}>
-          <tr>
-            <td>1</td>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-            <td>0</td>
-          </tr>
-          <tr>
-            <td>1</td>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-            <td>0</td>
-          </tr>
-          <tr>
-            <td>1</td>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-            <td>0</td>
-          </tr>
-          <tr>
-            <td>1</td>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-            <td>0</td>
-          </tr>
-          <tr>
-            <td>1</td>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-            <td>0</td>
-          </tr>
-          <tr>
-            <td>1</td>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-            <td>0</td>
-          </tr>
-          <tr>
-            <td>1</td>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-            <td>0</td>
-          </tr>
-          <tr>
-            <td>1</td>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-            <td>0</td>
-          </tr>
-          <tr>
-            <td>1</td>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-            <td>0</td>
-          </tr>
-          <tr>
-            <td>1</td>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
-            <td>0</td>
-          </tr>
-        </tbody>
-      </Table>
-    </div>
+    <Table
+      columns={attendaceColumns}
+      dataSource={attendanceData}
+      size="middle"
+      pagination={false}
+      scroll={{ y: 220 }}
+    />
   );
 };
 
