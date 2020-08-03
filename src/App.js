@@ -1,4 +1,5 @@
 import React from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "antd/dist/antd.css";
 import { Row, Col } from "antd";
 import NavBar from "./components/employee-components/navbar";
@@ -8,6 +9,11 @@ import EmployeeDashboard from "./views/employee-dashboard";
 import EmployeeSalaryAttendanceTab from "./views/employee-salary-attendance";
 import EmployeeProjectTab from "./views/employee-projects";
 import EmployeeContactTab from "./views/employee-contact-admin";
+import AdminDashboard from "./views/admin-dashboard";
+import AdminEmployee from "./views/admin-employee";
+import AdminProject from "./views/admin-projects";
+import AdminJobs from "./views/admin-jobs";
+import AdminSalary from "./views/admin-salary";
 
 function App() {
   var msgs = [
@@ -37,7 +43,7 @@ function App() {
 
   return (
     <>
-      <Row style={{ backgroundColor: "#f2f2f0", height: "100vh" }}>
+      <Row style={{ backgroundColor: "#f2f2f0" }}>
         <Col span={5}>
           <Row>
             <Bio />
@@ -46,14 +52,28 @@ function App() {
             <BroadcastPanel Msgs={msgs} />
           </Row>
         </Col>
-        <Col style={{ backgroundColor: "#FFFFFF" }} span={19}>
-          <Row style={{ height: 40 }}>
-            <Col span={24}>
-              <NavBar />
-            </Col>
-          </Row>
-          <EmployeeDashboard />
-        </Col>
+        <Router>
+          <Col style={{ backgroundColor: "#FFFFFF" }} span={19}>
+            <Row style={{ height: 40 }}>
+              <Col span={24}>
+                <NavBar />
+              </Col>
+            </Row>
+            <Switch>
+              <Route path="/dashboard" component={AdminDashboard}></Route>
+              {/* <Route
+                path="/attendanceandsalary"
+                component={EmployeeSalaryAttendanceTab}
+              ></Route>
+              <Route path="/projects" component={EmployeeProjectTab}></Route>
+              <Route
+                path="/contactadmin"
+                component={EmployeeContactTab}
+              ></Route> */}
+              <Route path="/" exact component={AdminDashboard}></Route>
+            </Switch>
+          </Col>
+        </Router>
       </Row>
     </>
   );

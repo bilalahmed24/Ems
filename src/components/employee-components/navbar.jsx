@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 import { Col, Row, Dropdown, Menu } from "antd";
 import {
   UserOutlined,
@@ -24,6 +25,8 @@ const menu = (
 
 export default function NavBar(props) {
   let [current, setCurrent] = useState("dashboard");
+  const history = useHistory();
+  history.push(current);
 
   return (
     <>
@@ -35,14 +38,16 @@ export default function NavBar(props) {
             mode="horizontal"
           >
             <Menu.Item
-              key="dashboard"
+              key="/dashboard"
               icon={<DashboardOutlined style={{ fontSize: 24 }} />}
-              onClick={(e) => setCurrent(e.key)}
+              onClick={(e) => {
+                setCurrent(e.key);
+              }}
             >
               Dashboard
             </Menu.Item>
             <Menu.Item
-              key="attendanceandsalary"
+              key="/attendanceandsalary"
               icon={<PayCircleOutlined style={{ fontSize: 24 }} />}
               onClick={(e) => setCurrent(e.key)}
             >
@@ -50,14 +55,14 @@ export default function NavBar(props) {
             </Menu.Item>
 
             <Menu.Item
-              key="projects"
+              key="/projects"
               icon={<ProjectOutlined style={{ fontSize: 24 }} />}
               onClick={(e) => setCurrent(e.key)}
             >
               Projects
             </Menu.Item>
             <Menu.Item
-              key="contactadmin"
+              key="/contactadmin"
               icon={<MessageOutlined style={{ fontSize: 24 }} />}
               onClick={(e) => setCurrent(e.key)}
             >

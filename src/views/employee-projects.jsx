@@ -9,7 +9,7 @@ const EmployeeProjectTab = () => {
   return (
     <>
       <Row>
-        <Col span={19} style={{ padding: "0 20px" }}>
+        <Col span={18} style={{ padding: "20px 20px" }}>
           <Row>
             <Col span={24} className="basic-title-color col-display">
               <ProjectTable />
@@ -22,7 +22,7 @@ const EmployeeProjectTab = () => {
           </Row>
         </Col>
 
-        <Col span={5} className="col-display">
+        <Col span={6} className="col-display">
           {/* <ProjectChat /> */}
         </Col>
       </Row>

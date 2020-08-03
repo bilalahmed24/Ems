@@ -204,7 +204,7 @@ const ProjectTable = () => {
             dataSource={data}
             size="middle"
             pagination={false}
-            scroll={{ y: 250 }}
+            scroll={{ y: 240 }}
           />
         </Col>
       </Row>

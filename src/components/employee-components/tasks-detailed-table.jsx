@@ -126,7 +126,7 @@ const TaskTable = () => {
             dataSource={taskData}
             size="middle"
             pagination={false}
-            scroll={{ y: 120 }}
+            scroll={{ y: 140 }}
           />
         </Col>
       </Row>

@@ -110,3 +110,9 @@ th {
 .form-items {
   border-radius: 20px;
 }
+
+.admin-project-title {
+  color: #878787 !important;
+  float: left;
+  margin: 0 !important;
+}
