@@ -10,24 +10,33 @@ const MiniProjectDetails = () => {
       <div className="miniproject-panel-body scrollbar scrollbar-info">
         <Descriptions
           title={
-            <Title style={{ color: "#878787" }} level={3}>
+            <Title style={{ color: "#878787", margin: 0 }} level={3}>
               Active Projects
             </Title>
           }
           size="middle"
           colon={false}
         >
-          <Descriptions.Item label={<Title level={3}>ABC</Title>}>
+          <Descriptions.Item
+            style={{ borderRadius: 20, padding: 0, background: "white" }}
+            label={<Title level={3}>ABC</Title>}
+          >
             <Paragraph strong style={{ paddingLeft: 5 }}>
               Status <br /> Deadline
             </Paragraph>
           </Descriptions.Item>
-          <Descriptions.Item label={<Title level={3}>DEF</Title>}>
+          <Descriptions.Item
+            style={{ borderRadius: 20, padding: 0, background: "white" }}
+            label={<Title level={3}>DEF</Title>}
+          >
             <Paragraph strong style={{ paddingLeft: 5 }}>
               Status <br /> Deadline
             </Paragraph>
           </Descriptions.Item>
-          <Descriptions.Item label={<Title level={3}>GHI</Title>}>
+          <Descriptions.Item
+            style={{ borderRadius: 20, padding: 0, background: "white" }}
+            label={<Title level={3}>GHI</Title>}
+          >
             <Paragraph strong style={{ paddingLeft: 5 }}>
               Status <br /> Deadline
             </Paragraph>

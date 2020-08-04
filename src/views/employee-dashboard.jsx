@@ -12,39 +12,52 @@ function EmployeeDashboard() {
     <>
       <Row style={{ paddingTop: "30px" }} justify="space-around">
         <Col
-          style={{ backgroundColor: "#f2f2f0", borderRadius: "20px" }}
+          style={{
+            backgroundColor: "#f2f2f0",
+            borderRadius: "20px",
+            paddingTop: 20,
+          }}
           flex="460px"
         >
           <AttendancePanel1 />
         </Col>
         <Col
-          style={{ backgroundColor: "#f2f2f0", borderRadius: "20px" }}
+          style={{
+            backgroundColor: "#f2f2f0",
+            borderRadius: "20px",
+            paddingTop: 10,
+          }}
           flex="600px"
         >
           <AttendancePanel2 />
         </Col>
       </Row>
-      <Row justify="space-around" style={{ paddingTop: "20px" }}>
+      <Row justify="space-around" style={{ paddingTop: "10px" }}>
         <Col
-          style={{ backgroundColor: "#f2f2f0", borderRadius: "20px" }}
-          offset={1}
-          flex="120px"
+          style={{
+            backgroundColor: "#f2f2f0",
+            borderRadius: "20px",
+            padding: 20,
+          }}
+          flex="460px"
         >
           <ProjectChart />
         </Col>
         <Col
           style={{ backgroundColor: "#f2f2f0", borderRadius: "20px" }}
-          offset={1}
-          flex="485px"
+          flex="600px"
         >
           <EfficiencyChart />
         </Col>
       </Row>
-      <Row style={{ paddingTop: "20px" }}>
+      <Row style={{ padding: "10px 0 5px 5px" }}>
         <Col
-          style={{ backgroundColor: "#f2f2f0", borderRadius: "20px" }}
-          offset={2}
-          span={21}
+          style={{
+            backgroundColor: "#f2f2f0",
+            borderRadius: "20px",
+            padding: "10px 0px 10px 10px",
+          }}
+          span={24}
         >
           <MiniProjectDetails />
         </Col>

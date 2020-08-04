@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Row, Col, Radio, Typography } from "antd";
+import React from "react";
+import { Row, Col, Typography } from "antd";
 import { Pie } from "react-chartjs-2";
 
 const { Title } = Typography;
@@ -15,37 +15,16 @@ const data = {
   labels: ["Timely Task Completions", "Late Task Completions"],
 };
 
-const radioStyle = {
-  display: "block",
-  height: "18px",
-  paddingTop: "25px",
-  lineHeight: "18px",
-};
-
 const EfficiencyChart = () => {
-  const [value, setState] = useState(1);
-
-  const onChange = (e) => {
-    setState(e.target.value);
-  };
-
   return (
     <>
-      <Row style={{ width: "100%", justifyContent: "center" }}>
-        <Col span={6}>
-          <Title style={{ color: "#878787", paddingTop: "10px" }} level={3}>
+      <Row style={{ justifyContent: "center", paddingTop: 20 }}>
+        <Col span={5}>
+          <Title style={{ color: "#878787" }} level={3}>
             Efficiency
           </Title>
-          <Radio.Group onChange={onChange} value={value}>
-            <Radio style={radioStyle} value={1}>
-              Monthly
-            </Radio>
-            <Radio style={radioStyle} value={2}>
-              Yearly
-            </Radio>
-          </Radio.Group>
         </Col>
-        <Col span={15}>
+        <Col span={16}>
           <Pie
             height={140}
             width={120}
