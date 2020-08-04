@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "antd/dist/antd.css";
 import { Row, Col } from "antd";
+import LoginPage from "./views/login-page";
 import NavBar from "./components/employee-components/navbar";
 import BroadcastPanel from "./components/employee-components/broadcast-panel";
 import Bio from "./components/employee-components/bio-panel";
@@ -9,11 +10,11 @@ import EmployeeDashboard from "./views/employee-dashboard";
 import EmployeeSalaryAttendanceTab from "./views/employee-salary-attendance";
 import EmployeeProjectTab from "./views/employee-projects";
 import EmployeeContactTab from "./views/employee-contact-admin";
-import AdminDashboard from "./views/admin-dashboard";
-import AdminEmployee from "./views/admin-employee";
-import AdminProject from "./views/admin-projects";
-import AdminJobs from "./views/admin-jobs";
-import AdminSalary from "./views/admin-salary";
+// import AdminDashboard from "./views/admin-dashboard";
+// import AdminEmployee from "./views/admin-employee";
+// import AdminProject from "./views/admin-projects";
+// import AdminJobs from "./views/admin-jobs";
+// import AdminSalary from "./views/admin-salary";
 
 function App() {
   var msgs = [
@@ -60,8 +61,8 @@ function App() {
               </Col>
             </Row>
             <Switch>
-              <Route path="/dashboard" component={AdminDashboard}></Route>
-              {/* <Route
+              <Route path="/dashboard" component={LoginPage}></Route>
+              <Route
                 path="/attendanceandsalary"
                 component={EmployeeSalaryAttendanceTab}
               ></Route>
@@ -69,8 +70,8 @@ function App() {
               <Route
                 path="/contactadmin"
                 component={EmployeeContactTab}
-              ></Route> */}
-              <Route path="/" exact component={AdminDashboard}></Route>
+              ></Route>
+              <Route path="/" exact component={LoginPage}></Route>
             </Switch>
           </Col>
         </Router>
