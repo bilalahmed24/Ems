@@ -51,15 +51,6 @@ const columns = [
     title: "Total",
     dataIndex: "Total",
   },
-  {
-    title: "View/Edit",
-    dataIndex: "View/Edit",
-    render: () => (
-      <Button type="primary" shape="round">
-        View/Edit
-      </Button>
-    ),
-  },
 ];
 
 const data = [

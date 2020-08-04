@@ -1,11 +1,24 @@
-import React from "react";
-import { Row, Col, Typography, Button, Input, Table } from "antd";
+import React, { useState } from "react";
+import {
+  Row,
+  Col,
+  Typography,
+  Button,
+  Input,
+  Table,
+  Form,
+  Select,
+  Divider,
+  Modal,
+  DatePicker,
+} from "antd";
 import "antd/dist/antd.css";
 
 const { Title } = Typography;
 const { Search } = Input;
 
 const AdminEmployee = () => {
+  const [employeeView, setEmployeeView] = useState(false);
   const columns = [
     {
       title: "Employee ID",
@@ -47,7 +60,11 @@ const AdminEmployee = () => {
       title: "Profile",
       dataIndex: "Profile",
       render: () => (
-        <Button type="primary" shape="round">
+        <Button
+          type="primary"
+          shape="round"
+          onClick={() => setEmployeeView(true)}
+        >
           View
         </Button>
       ),
@@ -205,8 +222,117 @@ const AdminEmployee = () => {
           </Col>
         </Row>
       </Row>
+      <Modal
+        style={{ borderRadius: "20px" }}
+        visible={employeeView}
+        width="580px"
+        okText="Update"
+        okButtonProps={{
+          style: { backgroundColor: "#1890ff", borderRadius: 20 },
+        }}
+        cancelButtonProps={{ style: { display: "none" } }}
+        onOk={updateEmployee}
+        onCancel={() => setEmployeeView(false)}
+      >
+        <Form
+          wrapperCol={{ offset: 2, span: 14 }}
+          size="middle"
+          colon={false}
+          labelAlign="left"
+          layout="inline"
+        >
+          <Form.Item label="ID" style={{ width: "-webkit-fill-available" }}>
+            <Title level={4} className="form-items">
+              KB0001
+            </Title>
+          </Form.Item>
+          <Form.Item label="First Name">
+            <Input className="form-items" />
+          </Form.Item>
+          <Form.Item label="Joining Date" style={{ paddingBottom: 10 }}>
+            <DatePicker className="form-items" format={"DD/MM/YYYY"} />
+          </Form.Item>
+          <Form.Item label="Last Name">
+            <Input className="form-items" />
+          </Form.Item>
+          <Form.Item
+            label="Select Job"
+            style={{ paddingBottom: 10, paddingLeft: 15 }}
+          >
+            <Select
+              className="form-items"
+              showSearch
+              style={{ width: 140 }}
+              optionFilterProp="children"
+              filterOption={(input, option) =>
+                option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
+              }
+            >
+              {/* create iterator list of option tag here */}
+            </Select>
+          </Form.Item>
+          <Form.Item
+            wrapperCol={{ offset: 0, span: 16 }}
+            label="Phone Number"
+            style={{ width: "-webkit-fill-available", paddingBottom: 10 }}
+          >
+            <Input className="form-items" />
+          </Form.Item>
+          <Form.Item
+            wrapperCol={{ offset: 2, span: 16 }}
+            label="Email"
+            style={{
+              width: "-webkit-fill-available",
+              paddingBottom: 10,
+              paddingLeft: 20,
+            }}
+          >
+            <Input className="form-items" />
+          </Form.Item>
+          <Form.Item
+            wrapperCol={{ offset: 2, span: 16 }}
+            label="Address"
+            style={{ width: "-webkit-fill-available", paddingBottom: 10 }}
+          >
+            <Input className="form-items" />
+          </Form.Item>
+          <Divider dashed />
+          <Form.Item
+            label="User ID"
+            style={{ width: "-webkit-fill-available" }}
+          >
+            <Title level={4} className="form-items">
+              KB0001
+            </Title>
+          </Form.Item>
+          <Form.Item
+            wrapperCol={{ offset: 1, span: 16 }}
+            label="Password"
+            style={{ width: "-webkit-fill-available", paddingLeft: 5 }}
+          >
+            <Input className="form-items" />
+          </Form.Item>
+        </Form>
+        <Button
+          type="primary"
+          danger
+          shape="round"
+          style={{
+            borderRadius: 20,
+            position: "absolute",
+            bottom: 10,
+            left: 10,
+          }}
+          onClick={disableAccount}
+        >
+          Disable Account
+        </Button>
+      </Modal>
     </>
   );
 };
 
 export default AdminEmployee;
+
+function updateEmployee() {}
+function disableAccount() {}
