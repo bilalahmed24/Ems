@@ -1,27 +1,14 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
-import { Col, Row, Dropdown, Menu } from "antd";
+import { Col, Row, Menu, Tooltip, Button } from "antd";
 import {
   UserOutlined,
   DashboardOutlined,
   ProjectOutlined,
   PayCircleOutlined,
   MessageOutlined,
+  PoweroffOutlined,
 } from "@ant-design/icons";
-
-const menu = (
-  <Menu>
-    <Menu.Item key="1" icon={<UserOutlined />}>
-      1st menu item
-    </Menu.Item>
-    <Menu.Item key="2" icon={<UserOutlined />}>
-      2nd menu item
-    </Menu.Item>
-    <Menu.Item key="3" icon={<UserOutlined />}>
-      3rd item
-    </Menu.Item>
-  </Menu>
-);
 
 export default function NavBar(props) {
   let [current, setCurrent] = useState("dashboard");
@@ -71,13 +58,14 @@ export default function NavBar(props) {
           </Menu>
         </Col>
         <Col pull={1} span={2} style={{ paddingTop: 10 }}>
-          <Dropdown.Button
-            overlay={menu}
-            placement="bottomCenter"
-            icon={<UserOutlined />}
-          >
-            Dropdown
-          </Dropdown.Button>
+          <Tooltip placement="bottom" title="Logout">
+            <Button
+              shape="circle"
+              icon={<PoweroffOutlined />}
+              size="small"
+              style={{ float: "right", color: "rgba(0, 0, 0, 0.65)" }}
+            />
+          </Tooltip>
         </Col>
       </Row>
     </>
