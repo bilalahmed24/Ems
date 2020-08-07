@@ -1,11 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import Clock from "react-live-clock";
+import moment from "moment";
 import "antd/dist/antd.css";
 import { Typography, Row, Col, Button } from "antd";
 
 const { Title } = Typography;
 
 const AttendancePanel1 = () => {
+  const [attendanceTime, setAttendanceTime] = useState("-- : --");
+  const [exitTime, setexitTime] = useState("-- : --");
+  const [disableBtn, setDisableBtn] = useState(false);
+
+  function AttendanceTime() {
+    setAttendanceTime(moment().format("HH:mm"));
+    setexitTime(moment().add(8, "hours").format("HH:mm"));
+    setDisableBtn(true);
+  }
   return (
     <>
       <Row>
@@ -25,14 +35,12 @@ const AttendancePanel1 = () => {
       <Row>
         <Col offset={3} span={8}>
           <label style={{ fontSize: 13 }}>Attendance Time</label>
-          <Title level={2}>
-            <Clock format="HH:mm" interval={60000} ticking={true} />
-          </Title>
+          <Title level={2}>{attendanceTime}</Title>
         </Col>
         <Col span={11}>
           <label style={{ color: "#878787", fontSize: 13 }}>Exit Time</label>
           <Title style={{ color: "#878787" }} level={2}>
-            <Clock format="HH:mm" interval={60000} ticking={true} />
+            {exitTime}
           </Title>
         </Col>
       </Row>
@@ -44,23 +52,12 @@ const AttendancePanel1 = () => {
               borderColor: "#1890ff",
               color: "white",
             }}
+            disabled={disableBtn}
             shape="round"
             size="large"
+            onClick={() => AttendanceTime()}
           >
             Attendance
-          </Button>
-        </Col>
-        <Col span={11}>
-          <Button
-            style={{
-              backgroundColor: "#ea0c4b",
-              borderColor: "#ea0c4b",
-              color: "white",
-            }}
-            shape="round"
-            size="large"
-          >
-            Exit
           </Button>
         </Col>
       </Row>

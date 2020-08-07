@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "antd/dist/antd.css";
 import { Row, Col, Typography, Divider } from "antd";
 import NavBar from "./components/admin-componenets/navbar";
-import BroadcastPanel from "./components/employee-components/broadcast-panel";
+import BroadcastPanel from "./components/admin-componenets/broadcast-panel";
 import AdminDashboard from "./views/admin-dashboard";
 import AdminEmployee from "./views/admin-employee";
 import AdminJobs from "./views/admin-jobs";
@@ -14,6 +14,36 @@ const { Title } = Typography;
 
 function AppAdmin() {
   var msgs = [
+    {
+      type: "Broadcast",
+      msg: "dgadajdgajhgdjsadhgsjdgjhadjhdgasjdgjsagdhasgdjhsadgas",
+      eventDate: "23/10/2020",
+    },
+    {
+      type: "Broadcast",
+      msg: "dgadajdgajhgdjsadhgsjdgjhadjhdgasjdgjsagdhasgdjhsadgas",
+      eventDate: "23/10/2020",
+    },
+    {
+      type: "Broadcast",
+      msg: "dgadajdgajhgdjsadhgsjdgjhadjhdgasjdgjsagdhasgdjhsadgas",
+      eventDate: "23/10/2020",
+    },
+    {
+      type: "Broadcast",
+      msg: "dgadajdgajhgdjsadhgsjdgjhadjhdgasjdgjsagdhasgdjhsadgas",
+      eventDate: "23/10/2020",
+    },
+    {
+      type: "Broadcast",
+      msg: "dgadajdgajhgdjsadhgsjdgjhadjhdgasjdgjsagdhasgdjhsadgas",
+      eventDate: "23/10/2020",
+    },
+    {
+      type: "Broadcast",
+      msg: "dgadajdgajhgdjsadhgsjdgjhadjhdgasjdgjsagdhasgdjhsadgas",
+      eventDate: "23/10/2020",
+    },
     {
       type: "Broadcast",
       msg: "dgadajdgajhgdjsadhgsjdgjhadjhdgasjdgjsagdhasgdjhsadgas",
@@ -51,7 +81,7 @@ function AppAdmin() {
             />
           </Row>
           <Row>
-            <BroadcastPanel Msgs={msgs} />
+            <BroadcastPanel Msgs={msgs} style={{ height: "80vh" }} />
           </Row>
         </Col>
         <Router>
